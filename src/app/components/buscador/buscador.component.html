@@ -1,0 +1,32 @@
+<div class="main-container">
+  <section class="search-section">
+    <mat-form-field appearance="outline" class="search-bar">
+      <mat-label>¿Qué producto buscas?</mat-label>
+      <input matInput 
+             [(ngModel)]="terminoBusqueda" 
+             (input)="filtrar()" 
+             placeholder="Ej: leche">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </section>
+
+  <div class="cinta-wrapper">
+    <div class="cinta-productos">
+      <mat-card *ngFor="let producto of productosFiltrados" class="product-card">
+        <div class="super-header" [ngClass]="producto.supermercado.toLowerCase()">
+          {{ producto.supermercado }}
+        </div>
+        <img mat-card-image [src]="producto.imagen">
+        <mat-card-content>
+          <h2 class="product-title">{{ producto.nombre }}</h2>
+          <p class="product-price">{{ producto.precio }} €</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon-button color="warn" (click)="anadirAlCarrito(producto)">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
