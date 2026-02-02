@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'sincronizador' title`, () => {
+  it(`should have the 'Comparador de Precios' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('sincronizador');
+    expect(app.title).toEqual('Comparador de Precios');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, sincronizador');
+    expect(compiled.querySelector('span')?.textContent).toContain('Comparador de Precios');
   });
 });
